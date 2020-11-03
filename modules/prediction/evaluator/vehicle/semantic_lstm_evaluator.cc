@@ -238,7 +238,7 @@ bool SemanticLSTMEvaluator::ExtractObstacleHistory(
 
 void SemanticLSTMEvaluator::LoadModel() {
   if (FLAGS_use_cuda && torch::cuda::is_available()) {
-    ADEBUG << "CUDA is available";
+    AERROR << "CUDA is available";
     device_ = torch::Device(torch::kCUDA);
     torch_vehicle_model_ =
         torch::jit::load(FLAGS_torch_vehicle_semantic_lstm_file, device_);
