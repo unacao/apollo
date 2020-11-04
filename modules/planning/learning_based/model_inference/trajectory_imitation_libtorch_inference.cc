@@ -69,8 +69,8 @@ bool TrajectoryImitationLibtorchInference::LoadCNNLSTMModel() {
 }
 
 bool TrajectoryImitationLibtorchInference::LoadModel() {
-  if (config_.use_cuda() && torch::cuda::is_available()) {
-    ADEBUG << "CUDA is available";
+  if (config_.use_cuda()) {
+    AERROR << "CUDA is available";
     device_ = torch::Device(torch::kCUDA);
     try {
       model_ = torch::jit::load(config_.gpu_model_file(), device_);
