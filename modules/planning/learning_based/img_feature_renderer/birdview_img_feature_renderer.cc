@@ -47,6 +47,8 @@ bool BirdviewImgFeatureRenderer::Init(const PlanningSemanticMapConfig& config) {
 
   const std::string map_name =
       FLAGS_map_dir.substr(FLAGS_map_dir.find_last_of("/") + 1);
+  AERROR << "[una] map_dir:" << FLAGS_map_dir;
+
   if (map_name != "sunnyvale_with_two_offices" && map_name != "sunnyvale") {
     AERROR << "Map other than sunnyvale_with_two_offices are not supported";
   }
